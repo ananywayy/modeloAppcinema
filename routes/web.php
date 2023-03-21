@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\cadastroFilme;
 use App\Http\Controllers\cadastroFuncionario;
+use App\Http\Controllers\cadastroPoltrona;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,12 @@ use App\Http\Controllers\cadastroFuncionario;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home.blade.php', function () {
     return view('home');
 });
 
-Route::get('/cadastro-filme',[cadastroFilme::class,'buscarCadastroFilme']); 
+Route::get('/cadastro-filme', [cadastroFilme::class, 'buscaCadastroFilme']);
 
 Route::get('/cadastro-funcionario',[cadastroFuncionario::class,'buscaCadastroFuncionario']);
+
+Route::get('/cadastro-poltrona',[cadastroPoltrona::class,'buscaCadastroPoltrona']);
