@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\cadastrarFuncionarioModel;
+use App\Models\Funcionario;
 
 class cadastroFuncionario extends Controller
 {
@@ -14,14 +14,14 @@ class cadastroFuncionario extends Controller
     public function cadastrarFuncionario(Request $request){
         $dadosfuncionarios = $request ->validate(
             [
-                'email_fun' => 'string|require',
-                'nome_fun' => 'string|require',
-                'whatsapp_fun' => 'string|require',
-                'cpf_fun' => 'string|require',
-                'senha_fun' => 'string|require'
+                'emailfun' => 'string|require',
+                'nomefun' => 'string|require',
+                'whatsappfun' => 'string|require',
+                'cpffun' => 'string|require',
+                'senhafun' => 'string|require'
             ]
             );
-    cadastroFuncionarioModel::create($dadosFuncionarios);    
+        Funcionario::create($dadosFuncionarios);    
     return Redirect::route('/home');        
     }
 }

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class cadastroFuncionarioModel extends Model
+class Funcionario extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-        'email_fun', 'nome_fun', 'whatsapp_fun', 'cpf_fun', 'senha_fun'
+        'emailfun', 'nomefun', 'whatsappfun', 'cpffun', 'senhafun'
     ];
 }

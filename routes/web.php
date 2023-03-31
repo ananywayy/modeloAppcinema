@@ -21,6 +21,7 @@ Route::get('/home.blade.php', function () {
 
 Route::get('/cadastro-filme', [cadastroFilme::class, 'buscaCadastroFilme']);
 
-Route::get('/cadastro-funcionario',[cadastroFuncionario::class,'buscaCadastroFuncionario']);
+Route::get('/cadastro-funcionario',[cadastroFuncionario::class,'buscarCadastroFuncionario'])->name('buscar-cadastro-funcionario') ;
+Route::post('/cadastro-funcionario',[cadastroFuncionario::class, 'cadastroFuncionario']) ->name('cadastro-funcionario');
 
 Route::get('/cadastro-poltrona',[cadastroPoltrona::class,'buscaCadastroPoltrona']);

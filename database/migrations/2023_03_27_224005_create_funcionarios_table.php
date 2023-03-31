@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('emailfun');
             $table->string('nomefun');
             $table->string('senhafun');
-            $table->string('whatsapp');
-            $table->string('cpf');
+            $table->string('whatsappfun');
+            $table->string('cpffun');
         });
     }
 

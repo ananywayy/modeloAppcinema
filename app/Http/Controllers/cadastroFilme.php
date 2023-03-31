@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\cadastroFilmeModel;
 
-class cadastroFilmeModel extends Controller
+class cadastroFilme extends Controller
 {
 
 
