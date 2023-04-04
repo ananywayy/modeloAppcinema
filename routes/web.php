@@ -15,13 +15,14 @@ use App\Http\Controllers\cadastroPoltrona;
 |
 */
 
-Route::get('/home.blade.php', function () {
-    return view('home');
+Route::get('/', function () {
+    return view('/home');
 });
 
-Route::get('/cadastro-filme', [cadastroFilme::class, 'buscaCadastroFilme']);
+Route::get('/cadastro-filme', [cadastroFilme::class, 'buscarCadastrarFilme']) ->name('buscar-cadastro-filme');
+Route::post('/cadastro-filme', [cadastroFilme::class, 'cadastrarFilme']) ->name('cadastro-filme');
 
-Route::get('/cadastro-funcionario',[cadastroFuncionario::class,'buscarCadastroFuncionario'])->name('buscar-cadastro-funcionario') ;
-Route::post('/cadastro-funcionario',[cadastroFuncionario::class, 'cadastroFuncionario']) ->name('cadastro-funcionario');
+Route::get('/cadastro-funcionario',[cadastroFuncionario::class,'buscarCadastrarFuncionario'])->name('buscar-cadastro-funcionario') ;
+Route::post('/cadastro-funcionario',[cadastroFuncionario::class, 'cadastrarFuncionario']) ->name('cadastro-funcionario');
 
 Route::get('/cadastro-poltrona',[cadastroPoltrona::class,'buscaCadastroPoltrona']);

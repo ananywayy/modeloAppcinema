@@ -15,6 +15,7 @@ return new class extends Migration
             $table -> id();
             $table -> timestamps();
             $table -> string('nomefilme');
+            $table -> string('atoresfilme');
             $table -> longText('sinopsefilme');
             $table -> string('datalancamentofilme');
             $table -> string('capafilme');
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('filmes');
     }
 };
