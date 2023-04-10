@@ -17,7 +17,7 @@ return new class extends Migration
             $table -> string('nomefilme');
             $table -> string('atoresfilme');
             $table -> longText('sinopsefilme');
-            $table -> string('datalancamentofilme');
+            $table -> date('datalancamentofilme');
             $table -> string('capafilme');
         });
     }
