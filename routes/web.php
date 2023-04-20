@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\cadastroFilme;
-use App\Http\Controllers\cadastroFuncionario;
-use App\Http\Controllers\cadastroPoltrona;
+use App\Http\Controllers\filmeController;
+use App\Http\Controllers\funcionarioController;
+use App\Http\Controllers\poltronaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,15 +15,20 @@ use App\Http\Controllers\cadastroPoltrona;
 |
 */
 
+
 Route::get('/', function () {
-    return view('/home');
-});
+    return view('home');
+})->name('home');
 
-Route::get('/cadastro-filme', [cadastroFilme::class, 'buscarCadastrarFilme']) ->name('buscar-cadastro-filme');
-Route::post('/cadastro-filme', [cadastroFilme::class, 'cadastrarFilme']) ->name('cadastro-filme');
+Route::get('/cadastro-filme', [filmeController::class, 'buscarCadastrarFilme']) ->name('buscar-cadastro-filme');
+Route::post('/cadastro-filme', [filmeController::class, 'cadastrarFilme']) ->name('cadastro-filme');
 
-Route::get('/cadastro-funcionario',[cadastroFuncionario::class,'buscarCadastrarFuncionario'])->name('buscar-cadastro-funcionario') ;
-Route::post('/cadastro-funcionario',[cadastroFuncionario::class, 'cadastrarFuncionario']) ->name('cadastro-funcionario');
+Route::get('/gerenciar-filme',[filmeController::class,'buscarFilme'])->name('gerenciar-filme');
 
-Route::get('/cadastro-poltrona',[cadastroPoltrona::class,'buscaCadastroPoltrona'])->name('buscar-cadastro-poltrona') ;
-Route::post('/cadastro-poltrona',[cadastroPoltrona::class, 'cadastrarPoltrona']) ->name('cadastro-poltrona');
+Route::get('/cadastro-funcionario',[funcionarioController::class,'buscarCadastrarFuncionario'])->name('buscar-cadastro-funcionario') ;
+Route::post('/cadastro-funcionario',[funcionarioController::class, 'cadastrarFuncionario']) ->name('cadastro-funcionario');
+
+Route::get('/gerenciar-funcionario',[funcionarioController::class,'buscarFuncionario'])->name('gerenciar-funcionario');
+
+Route::get('/cadastro-poltrona',[poltronaController::class,'buscaCadastroPoltrona'])->name('buscar-cadastro-poltrona') ;
+Route::post('/cadastro-poltrona',[poltronaController::class, 'cadastrarPoltrona']) ->name('cadastro-poltrona');

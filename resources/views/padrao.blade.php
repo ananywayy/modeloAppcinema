@@ -28,7 +28,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{{url('/cadastro-filme')}}">Cadastrar</a></li>
                   <li><a class="dropdown-item" href="#">Pesquisar</a></li>
-                  <li><a class="dropdown-item" href="#">Gerenciar</a></li>
+                  <li><a class="dropdown-item" href="{{url('gerenciar-filme')}}">Gerenciar</a></li>
                 </ul>
               </li>
 
@@ -37,7 +37,7 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{url('/cadastro-funcionario')}}">Cadastrar</a></li>
                     <li><a class="dropdown-item" href="#">Pesquisar</a></li>
-                    <li><a class="dropdown-item" href="#">Gerenciar</a></li>
+                    <li><a class="dropdown-item" href="{{url('gerenciar-funcionario')}}">Gerenciar</a></li>
                 </ul>
               </li>
 

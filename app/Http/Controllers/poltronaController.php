@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Models\Poltrona;
 
-class cadastroPoltrona extends Controller
+class poltronaController extends Controller
 {
     public function buscaCadastroPoltrona(){
         return View('cadastroPoltrona');
