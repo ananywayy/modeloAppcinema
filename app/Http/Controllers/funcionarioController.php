@@ -28,12 +28,12 @@ class funcionarioController extends Controller
     }
 
     public function buscarFuncionario(){
-        return View('gerenciadorFuncionario');
+        return View('gerenciadorFuncionario', ['dadosFuncionario'=>$dadosFuncionario]);
     }
 
     public function mostrarGerenciadorFuncionario(Request $request) {
         $dadosFuncionarios = Funcionario::all();
-        dd($dadosFuncionarios);
+        /* dd($dadosFuncionarios);
 
         /*
         $dadosFuncionarios = Funcionario::query();
