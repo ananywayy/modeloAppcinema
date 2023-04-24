@@ -28,26 +28,24 @@ class filmeController extends Controller
         $dadosFilme['capafilme'] = $path;
 
         Filme::create($dadosFilme);    
-        // return Redirect::route('cadastro-filme');  
+        return Redirect::route('home');  
 
     }
-    public function buscarFilme(){
-        return View('gerenciadorFilme');
-    }
+    
 
     public function mostrarGerenciadorFilme(Request $request) {
-        $dadosFilme = Filme::all();
-        dd($dadosFilme);
+        $dadosFilmes = collect();
 
-        /*
-        $dadosFuncionarios = Funcionario::query();
-        $dadosFuncionarios->when($request->nomefun, function($query, $nomefuncionario){
-            $query->where('nomefun', 'like', '%'.$nomefuncionario.'%');
-        });
+    if ($request->filled('nomefilme')) {
+        
+        $dadosFilmes = Filme::query()
+            ->where('nomefilme', 'like', '%' . $request->nomefilme . '%')
+            ->get();
+    }
 
-        $dadosFuncionarios = $dadosFuncionarios->get();
-
-        return view('gerenciadorFuncionario');
-        */
+        
+    
+        return view('gerenciadorFilme', ['dadosFilme'=> $dadosFilmes]);
     }
 }
+

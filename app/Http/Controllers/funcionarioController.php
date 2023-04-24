@@ -8,7 +8,7 @@ use App\Models\Funcionario;
 
 class funcionarioController extends Controller
 {
-    public function buscaCadastroFuncionario(){
+    public function buscarCadastrarFuncionario(){
         return View('cadastroFuncionario');
     }
 
@@ -22,28 +22,25 @@ class funcionarioController extends Controller
         ]);
         
         Funcionario::create($dadosFuncionario);
-
         return Redirect::route('home');
 
     }
 
-    public function buscarFuncionario(){
-        return View('gerenciadorFuncionario', ['dadosFuncionario'=>$dadosFuncionario]);
-    }
+    // public function buscarFuncionario(){
+    //     return View('gerenciadorFuncionario', ['dadosFuncionario'=>$dadosFuncionario]);
+    // }
 
     public function mostrarGerenciadorFuncionario(Request $request) {
-        $dadosFuncionarios = Funcionario::all();
-        /* dd($dadosFuncionarios);
+        $dadosFuncionarios = collect();
 
-        /*
-        $dadosFuncionarios = Funcionario::query();
-        $dadosFuncionarios->when($request->nomefun, function($query, $nomefuncionario){
-            $query->where('nomefun', 'like', '%'.$nomefuncionario.'%');
-        });
+    if ($request->filled('nomefun')) {
+        
+        $dadosFuncionarios = Funcionario::query()
+            ->where('nomefun', 'like', '%' . $request->nomefun . '%')
+            ->get();
+    }
 
-        $dadosFuncionarios = $dadosFuncionarios->get();
-
-        return view('gerenciadorFuncionario');
-        */
+        return view('gerenciadorFuncionario', ['dadosFuncionario'=> $dadosFuncionarios]);
+        
     }
 }

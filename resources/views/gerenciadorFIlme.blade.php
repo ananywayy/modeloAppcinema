@@ -3,43 +3,44 @@
 @section('content')
 
 <div class="container">
+  <form method="get" action="{{route('gerenciar-filme')}}">
     <div class="mt-3 row">
-        <label for="inputPassword" class="col-sm-2 col-form-label">Pesquisar:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputPassword">
+        <label for="inputPesquisar" class="col-sm-2 col-form-label">Pesquisar:</label>
+        
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="nomefilme" id="inputPesquisar" placeholder="Digite o nome do filme">
         </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-dark">Pesquisar</button>
+            </div>
     </div>
+  </form>
+</div>
+<div class="container my-3">
+    <table class="table table-dark table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Atores</th>
+        <th scope="col">Alterar</th>
+        <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($dadosFilme as $dadosFilmes)
+        <tr>
+        <th scope="row">{{$dadosFilmes->id}}</th>
+        <td>{{$dadosFilmes->nomefilme}}</td>
+        <td>{{$dadosFilmes->atoresfilme}}</td>
+        <td>x</td>
+        <td>x</td>
+        </tr>
+        @endforeach
+    </tbody>
+    </table>
 </div>
 
-<table class="table table-dark table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
 
 
 @endsection

@@ -14,8 +14,9 @@
                 <button type="submit" class="btn btn-dark">Pesquisar</button>
             </div>
     </div>
+    </form>
 </div>
-</form>
+
 
 <div class="container my-3">
     <table class="table table-dark table-hover">
