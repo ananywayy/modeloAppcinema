@@ -20,15 +20,25 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+
+// Filme
+
 Route::get('/cadastro-filme', [filmeController::class, 'buscarCadastrarFilme']) ->name('buscar-cadastro-filme');
 Route::post('/cadastro-filme', [filmeController::class, 'cadastrarFilme']) ->name('cadastro-filme');
 
 Route::get('/gerenciar-filme',[filmeController::class,'mostrarGerenciadorFilme'])->name('gerenciar-filme');
 
+// Funcionario
 Route::get('/cadastro-funcionario',[funcionarioController::class,'buscarCadastrarFuncionario'])->name('buscar-cadastro-funcionario') ;
 Route::post('/cadastro-funcionario',[funcionarioController::class, 'cadastrarFuncionario']) ->name('cadastro-funcionario');
 
 Route::get('/gerenciar-funcionario',[funcionarioController::class,'mostrarGerenciadorFuncionario'])->name('gerenciar-funcionario');
 
+Route::delete('/gerenciar-funcionario/{registroFuncionario}', [funcionarioController::class, 'ApagarFuncionario'])->name('apagar-funcionario');
+
+Route::put('/gerenciar-funcionario/{registroFuncionario',[funcionarioController::class, 'AlterarBancoFuncionario'])->name('alterar-banco-funcionario');
+
+Route::get('/alterar-funcionario/{registroFuncionario}',[funcionarioController::class, 'MostrarRegistroFuncionario'])->name('mostrar-funcionario');
+// Poltrona 
 Route::get('/cadastro-poltrona',[poltronaController::class,'buscaCadastroPoltrona'])->name('buscar-cadastro-poltrona') ;
 Route::post('/cadastro-poltrona',[poltronaController::class, 'cadastrarPoltrona']) ->name('cadastro-poltrona');
