@@ -30,32 +30,43 @@ class funcionarioController extends Controller
     //     return View('gerenciadorFuncionario', ['dadosFuncionario'=>$dadosFuncionario]);
     // }
 
-    public function mostrarGerenciadorFuncionario(Request $request) {
-        $dadosFuncionarios = collect();
+    // public function mostrarGerenciadorFuncionario(Request $request) {
 
-        // $dadosFuncionarios = Funcionario::query();
-        // $dadosFuncionarios->when($request->nomefun,function($query,$nomefuncionario){
-        //     $query->where('nomefun','like','%' .$nomefuncionario. '%');
-        // });
+        
+    //     $dadosFuncionarios = collect();
 
-        // $dadosFuncionarios = $dadosFuncionarios->get();
         
-    if ($request->filled('nomefun')) {
+    // if ($request->filled('nomefun')) {
         
-        $dadosFuncionarios = Funcionario::query()
-            ->where('nomefun', 'like', '%' . $request->nomefun . '%')
-            ->get();
-    }
+    //     $dadosFuncionarios = Funcionario::query()
+    //         ->where('nomefun', 'like', '%' . $request->nomefun . '%')
+    //         ->get();
+    // }
 
-        return view('gerenciadorFuncionario', ['dadosFuncionario'=> $dadosFuncionarios]);
+    //     return view('gerenciadorFuncionario', ['dadosFuncionario'=> $dadosFuncionarios]);
         
-    }
+    // }
 
     public function ApagarFuncionario(Funcionario $registroFuncionario){
-        $registroFuncionario->delete();
+         $registroFuncionario->delete();
 
-        return Redirect::route('gerenciar-funcionario');
+         return Redirect::route('gerenciar-funcionario');
 
+    }
+
+    public function MostrarGerenciadorFuncionario(Request $request){
+        // $dadosfuncionarios = Funcionario::all();
+        // dd($dadosfuncionarios);
+     
+        $dadosFuncionarios = Funcionario::query();
+        $dadosFuncionarios->when($request->nomefun,function($query,$nomefuncionario ){
+            $query->where('nomefun','like','%'.$nomefuncionario.'%');
+        }); 
+
+        $dadosFuncionarios = $dadosFuncionarios->get();
+
+        return view('gerenciadorFuncionario',['dadosFuncionario'=>$dadosFuncionarios]);
+        
     }
 
     public function MostrarRegistroFuncionario(Funcionario $registroFuncionario){

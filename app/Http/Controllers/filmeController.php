@@ -33,19 +33,19 @@ class filmeController extends Controller
     }
     
 
-    public function mostrarGerenciadorFilme(Request $request) {
-        $dadosFilmes = collect();
+    public function MostrarGerenciadorFilme(Request $request){
+        // $dadosfuncionarios = Funcionario::all();
+        // dd($dadosfuncionarios);
+     
+        $dadosFilmes = Filme::query();
+        $dadosFilmes->when($request->nomefun,function($query,$nomefuncionario ){
+            $query->where('nomefun','like','%'.$nomefuncionario.'%');
+        }); 
 
-    if ($request->filled('nomefilme')) {
-        
-        $dadosFilmes = Filme::query()
-            ->where('nomefilme', 'like', '%' . $request->nomefilme . '%')
-            ->get();
-    }
+        $dadosFilmes = $dadosFilmes->get();
 
+        return view('gerenciadorFuncionario',['dadosFuncionario'=>$dadosFilmes]);
         
-    
-        return view('gerenciadorFilme', ['dadosFilme'=> $dadosFilmes]);
     }
 
     public function ApagarFilme(Filme $registroFilme){
