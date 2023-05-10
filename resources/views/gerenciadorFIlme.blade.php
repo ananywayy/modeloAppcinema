@@ -28,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-      @isset($dadosFilme)
+      
     @foreach($dadosFilme as $dadosFilmes)
         <tr>
         <td scope="row">{{$dadosFilmes->id}}</td>
@@ -62,7 +62,7 @@
     </tbody>
     @endforeach
 </div>
-@endisset
+
 
 
 

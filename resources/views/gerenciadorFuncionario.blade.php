@@ -30,44 +30,32 @@
         </tr>
     </thead>
     <tbody>
-    @isset($dadosFuncionario)
+    
         @foreach($dadosFuncionario as $dadosFuncionarios)
         <tr>
         <th scope="row">{{$dadosFuncionarios->id}}</th>
         <td>{{$dadosFuncionarios->nomefun}}</td>
         <td>{{$dadosFuncionarios->emailfun}}</td>
-        <td><a href="{{route('mostrar-funcionario', $dadosFuncionarios->id)}}">Alterar</a></td>
+        <td><a href="{{route('mostrar-funcionario', $dadosFuncionarios->id)}}">Alterar</a>
+        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAlterarFun-{{$dadosFuncionarios->id}}">
+            Alterar
+            </button>
+            @include('modal.modalFuncionarioAlterar')
+        </td>
         <td>
-            <form method="post" action="{{route('apagar-funcionario', $dadosFuncionarios->id)}}">
-                @method('delete')
-                @csrf
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"> Excluir </button>
-            <form>
+            
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-        <div class="modal-content bg-dark">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            Tem certeza que deseja excluir?
-        </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary">Excluir</button>
-        </div>
-        </div>
-    </div>
-</div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteFun-{{$dadosFuncionarios->id}}">
+            Excluir
+            </button>
+            @include('modal.modalFuncionarioDeletar')
+            
         </td>
         </tr>
         @endforeach
     </tbody>
     </table>
 </div>
-
-
-@endisset
 @endsection
