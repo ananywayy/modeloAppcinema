@@ -19,6 +19,7 @@
 
 
 <div class="container my-3">
+        
     <table class="table table-dark table-hover">
     <thead>
         <tr>
@@ -30,32 +31,28 @@
         </tr>
     </thead>
     <tbody>
-    
         @foreach($dadosFuncionario as $dadosFuncionarios)
         <tr>
         <th scope="row">{{$dadosFuncionarios->id}}</th>
         <td>{{$dadosFuncionarios->nomefun}}</td>
         <td>{{$dadosFuncionarios->emailfun}}</td>
-        <td><a href="{{route('mostrar-funcionario', $dadosFuncionarios->id)}}">Alterar</a>
-        <!-- Button trigger modal -->
+        <td>  
+            <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAlterarFun-{{$dadosFuncionarios->id}}">
-            Alterar
+                    Alterar
             </button>
-            @include('modal.modalFuncionarioAlterar')
+    @include('modal.modalFuncionarioAlterar')
         </td>
         <td>
-            
-
-            <!-- Button trigger modal -->
+        <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteFun-{{$dadosFuncionarios->id}}">
             Excluir
             </button>
-            @include('modal.modalFuncionarioDeletar')
-            
-        </td>
+    @include('modal.modalFuncionarioDeletar')
+        </td>  
         </tr>
-        @endforeach
+    @endforeach
     </tbody>
     </table>
-</div>
+    </div>
 @endsection

@@ -47,45 +47,43 @@ class funcionarioController extends Controller
         
     // }
 
-    public function ApagarFuncionario(Funcionario $registroFuncionario){
-         $registroFuncionario->delete();
-
-         return Redirect::route('gerenciar-funcionario');
-
-    }
-
     public function MostrarGerenciadorFuncionario(Request $request){
-        // $dadosfuncionarios = Funcionario::all();
-        // dd($dadosfuncionarios);
-     
+        $dadosFuncionarios = Funcionario::all();
+        //dd($dadosFuncionarios);
+        
         $dadosFuncionarios = Funcionario::query();
-        $dadosFuncionarios->when($request->nomefun,function($query,$nomefuncionario ){
-            $query->where('nomefun','like','%'.$nomefuncionario.'%');
-        }); 
-
+        $dadosFuncionarios->when($request->nomefun,function($query, $nomefuncionario){
+          $query->where('nomefun', 'like', '%'.$nomefuncionario.'%');
+        });
+  
         $dadosFuncionarios = $dadosFuncionarios->get();
-
+  
         return view('gerenciadorFuncionario',['dadosFuncionario'=>$dadosFuncionarios]);
         
-    }
+  
+      }
+  
+      public function ApagarFuncionario(Funcionario $registroFuncionario){
+        $registroFuncionario->delete();
+  
+        return Redirect::route('gerenciar-funcionario');
+      }
 
     public function MostrarRegistroFuncionario(Funcionario $registroFuncionario){
         return view('xxxx',['registroFuncionario' => $registroFuncionario]);
 
     }
     public function AlterarBancoFuncionario(Funcionario $registroFuncionario, Request $request){
-        $dadosFuncionarios = $request->validade([
-            'emailfun' => 'string|required',
-            'nomefun' => 'string|required',
-            'senhafun' => 'string|required',
-            'whatsappfun' => 'string|required',
-            'cpffun' => 'string|required'
-        ]); 
-        
+        $dadosFuncionarios = $request->validate([
+            'emailfun'=> 'string|required',
+            'nomefun'=> 'string|required',
+            'senhafun'=> 'string|required', 
+            'whatsappfun'=> 'string|required',
+            'cpffun'=> 'string|required'
+        ]);
         $registroFuncionario->fill($dadosFuncionarios);
         $registroFuncionario->save();
 
         return Redirect::route('gerenciar-funcionario');
-
     }
 }
