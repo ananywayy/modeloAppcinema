@@ -26,42 +26,42 @@ class funcionarioController extends Controller
 
     }
 
-    // public function buscarFuncionario(){
-    //     return View('gerenciadorFuncionario', ['dadosFuncionario'=>$dadosFuncionario]);
-    // }
+    //  public function buscarFuncionario(){
+    //      return View('gerenciadorFuncionario', ['dadosFuncionario'=>$dadosFuncionario]);
+    //  }
 
-    // public function mostrarGerenciadorFuncionario(Request $request) {
-
-        
-    //     $dadosFuncionarios = collect();
+     public function MostrarGerenciadorFuncionario(Request $request) {
 
         
-    // if ($request->filled('nomefun')) {
-        
-    //     $dadosFuncionarios = Funcionario::query()
-    //         ->where('nomefun', 'like', '%' . $request->nomefun . '%')
-    //         ->get();
-    // }
+        $dadosFuncionarios = collect();
 
-    //     return view('gerenciadorFuncionario', ['dadosFuncionario'=> $dadosFuncionarios]);
         
-    // }
+     if ($request->filled('nomefun')) {
+        
+         $dadosFuncionarios = Funcionario::query()
+             ->where('nomefun', 'like', '%' . $request->nomefun . '%')
+             ->get();
+     }
 
-    public function MostrarGerenciadorFuncionario(Request $request){
-        $dadosFuncionarios = Funcionario::all();
-        //dd($dadosFuncionarios);
+         return view('gerenciadorFuncionario', ['dadosFuncionario'=> $dadosFuncionarios]);
         
-        $dadosFuncionarios = Funcionario::query();
-        $dadosFuncionarios->when($request->nomefun,function($query, $nomefuncionario){
-          $query->where('nomefun', 'like', '%'.$nomefuncionario.'%');
-        });
+     }
+
+    // public function MostrarGerenciadorFuncionario(Request $request){
+    //     $dadosFuncionarios = Funcionario::all();
+    //     //dd($dadosFuncionarios);
+        
+    //     $dadosFuncionarios = Funcionario::query();
+    //     $dadosFuncionarios->when($request->nomefun,function($query, $nomefuncionario){
+    //       $query->where('nomefun', 'like', '%'.$nomefuncionario.'%');
+    //     });
   
-        $dadosFuncionarios = $dadosFuncionarios->get();
+    //     $dadosFuncionarios = $dadosFuncionarios->get();
   
-        return view('gerenciadorFuncionario',['dadosFuncionario'=>$dadosFuncionarios]);
+    //     return view('gerenciadorFuncionario',['dadosFuncionario'=>$dadosFuncionarios]);
         
   
-      }
+    //   }
   
       public function ApagarFuncionario(Funcionario $registroFuncionario){
         $registroFuncionario->delete();

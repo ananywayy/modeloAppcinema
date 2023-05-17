@@ -33,21 +33,22 @@ class filmeController extends Controller
     }
     
 
-    public function MostrarGerenciadorFilme(Request $request){
-        $dadosFilmes = Filme::all();
-        //dd($dadosFilmes);
+    public function MostrarGerenciadorFilme(Request $request) {
+
         
-        $dadosFilmes = Filme::query();
-        $dadosFilmes->when($request->nomefilme,function($query, $nomefilmes){
-          $query->where('nomefilme', 'like', '%'.$nomefilmes.'%');
-        });
-  
-        $dadosFilmes = $dadosFilmes->get();
-  
-        return view('gerenciadorFilme',['dadosFilme'=>$dadosFilmes]);
+        $dadosFilmes = collect();
+
         
-  
-      }
+     if ($request->filled('nomefilme')) {
+        
+         $dadosFilmes = Filme::query()
+             ->where('nomefilme', 'like', '%' . $request->nomefilme . '%')
+             ->get();
+     }
+
+         return view('gerenciadorFilme', ['dadosFilme'=> $dadosFilmes]);
+        
+     }
 
     public function ApagarFilme(Filme $registroFilme){
         $registroFilme->delete();
@@ -66,7 +67,7 @@ class filmeController extends Controller
             'atoresfilme' => 'string|required',
             'datalancamentofilme' => 'date|required',
             'sinopsefilme' => 'string|required',
-            'capafilme' => 'file|required'
+            'capafilme' => 'file'
         ]);
         $registroFilme->fill($dadosFilmes);
         $registroFilme->save();
