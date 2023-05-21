@@ -51,3 +51,11 @@ Route::get('/alterar-funcionario/{registroFuncionario}',[funcionarioController::
 // Poltrona 
 Route::get('/cadastro-poltrona',[poltronaController::class,'buscaCadastroPoltrona'])->name('buscar-cadastro-poltrona') ;
 Route::post('/cadastro-poltrona',[poltronaController::class, 'cadastrarPoltrona']) ->name('cadastro-poltrona');
+
+Route::get('/gerenciar-poltrona',[poltronaController::class,'mostrarGerenciadorPoltrona'])->name('gerenciar-poltrona');
+
+Route::delete('/gerenciar-poltrona/{registroPoltrona}', [poltronaController::class, 'ApagarPoltrona'])->name('apagar-poltrona');
+
+Route::put('/gerenciar-poltrona/{registroPoltrona}',[poltronaController::class, 'AlterarBancoPoltrona'])->name('alterar-banco-poltrona');
+
+Route::get('/alterar-poltrona/{registroPoltrona}',[poltronaController::class, 'MostrarRegistroPoltrona'])->name('mostrar-poltrona');

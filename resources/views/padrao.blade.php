@@ -27,7 +27,6 @@
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Filme</a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{{url('/cadastro-filme')}}">Cadastrar</a></li>
-                  <li><a class="dropdown-item" href="#">Pesquisar</a></li>
                   <li><a class="dropdown-item" href="{{url('gerenciar-filme')}}">Gerenciar</a></li>
                 </ul>
               </li>
@@ -36,7 +35,6 @@
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Funcionário</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{url('/cadastro-funcionario')}}">Cadastrar</a></li>
-                    <li><a class="dropdown-item" href="#">Pesquisar</a></li>
                     <li><a class="dropdown-item" href="{{url('gerenciar-funcionario')}}">Gerenciar</a></li>
                 </ul>
               </li>
@@ -45,8 +43,7 @@
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Sala/Poltrona</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{url('/cadastro-poltrona')}}">Cadastrar</a></li>
-                    <li><a class="dropdown-item" href="#">Pesquisar</a></li>
-                    <li><a class="dropdown-item" href="#">Gerenciar</a></li>
+                    <li><a class="dropdown-item" href="{{url('/gerenciar-poltrona')}}">Gerenciar</a></li>
                 </ul>
               </li>
             </ul>

@@ -9,6 +9,6 @@ class Poltrona extends Model
 {
     use HasFactory;
     protected $fillable =[
-        'filmepoltrona', 'qtdpoltrona','salapoltrona','sessaopoltrona'
+        'filmepoltrona', 'qtdpoltrona','tipopoltrona','sessaopoltrona'
     ];
 }

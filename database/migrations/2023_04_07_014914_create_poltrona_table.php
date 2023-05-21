@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('filmepoltrona');
             $table->string('qtdpoltrona');
-            $table->string('salapoltrona');
+            $table->string('tipopoltrona');
             $table->string('sessaopoltrona');
         });
     }
