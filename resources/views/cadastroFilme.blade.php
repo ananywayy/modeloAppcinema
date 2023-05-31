@@ -1,8 +1,8 @@
 @extends('padrao')
 
 @section('content') 
-   
-    <form enctype="multipart/form-data" method="post" action="{{route('cadastro-filme')}}">
+
+    <form class=" bg-dark p-5" enctype="multipart/form-data" method="post" action="{{route('cadastro-filme')}}">
         @csrf
             <div class="mb-3 form-check">
                 <label for="filmeInput" class="form-label">Filme:</label>
