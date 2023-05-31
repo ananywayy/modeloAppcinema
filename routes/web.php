@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\filmeController;
 use App\Http\Controllers\funcionarioController;
 use App\Http\Controllers\poltronaController;
+use App\Http\Controllers\filmeIndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +16,17 @@ use App\Http\Controllers\poltronaController;
 |
 */
 
-
-Route::get('/', function () {
+Route::get('/adm', function () {
     return view('home');
 })->name('home');
+
+Route::get('/', function () {
+    return view('site/index');
+})->name('index');
+
+Route::get('/login', function () {
+    return view('site/login');
+})->name('login');
 
 
 // Filme
@@ -34,7 +42,7 @@ Route::put('/gerenciar-filme/{registroFilme}',[filmeController::class, 'AlterarB
 
 Route::get('/alterar-filme/{registroFilme}',[filmeController::class, 'MostrarRegistroFilme'])->name('mostrar-filme');
 
-
+Route::get('/',[filmeIndexController::class,'exibirFilme'])->name('index');
 
 // Funcionario
 Route::get('/cadastro-funcionario',[funcionarioController::class,'buscarCadastrarFuncionario'])->name('buscar-cadastro-funcionario') ;

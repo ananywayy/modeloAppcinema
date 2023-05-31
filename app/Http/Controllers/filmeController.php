@@ -16,10 +16,15 @@ class filmeController extends Controller
     public function cadastrarFilme(Request $request){
         $dadosFilme = $request->validate([
             'nomefilme' => 'string|required',
-            'atoresfilme' => 'string|required',
-            'datalancamentofilme' => 'string|required',
+            'generofilme' => 'string|required',
+            'distribuidorafilme' => 'string|required',
+            'diretorfilme' => 'string|required',
+            'classificacaofilme' => 'string|required',
+            'duracaofilme' => 'string|required',
             'sinopsefilme' => 'string|required',
-            'capafilme' => 'file|required'
+            'categoriafilme' => 'string|required',
+            'capafilme' => 'file',
+            'classificacaofilme' => 'string|required'
         ]);
         // dd($dadosFilme);
 
@@ -64,10 +69,15 @@ class filmeController extends Controller
     public function AlterarBancoFilme(Filme $registroFilme, Request $request){
         $dadosFilmes = $request->validate([
             'nomefilme' => 'string|required',
-            'atoresfilme' => 'string|required',
-            'datalancamentofilme' => 'date|required',
+            'generofilme' => 'string|required',
+            'distribuidorafilme' => 'string|required',
+            'diretorfilme' => 'string|required',
+            'classificacaofilme' => 'string|required',
+            'duracaofilme' => 'string|required',
             'sinopsefilme' => 'string|required',
-            'capafilme' => 'file'
+            'categoria' => 'string|required',
+            'capafilme' => 'file',
+            'classificacaofilme' => 'string|required'
         ]);
         $registroFilme->fill($dadosFilmes);
         $registroFilme->save();

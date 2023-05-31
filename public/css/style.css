@@ -392,7 +392,6 @@ ol {
 	-o-transition: all, 0.5s;
 	transition: all, 0.5s;
 	padding: 20px;
-	text-decoration: none;
 }
 
 .header__menu ul li a span {
@@ -408,7 +407,6 @@ ol {
 
 .header__right a {
 	display: inline-block;
-	text-decoration: none;
 	font-size: 18px;
 	color: #ffffff;
 	margin-right: 30px;

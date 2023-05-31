@@ -11,16 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('filmes', function (Blueprint $table){
-            $table -> id();
-            $table -> timestamps();
-            $table -> string('nomefilme');
-            $table -> string('atoresfilme');
-            $table -> longText('sinopsefilme');
-            $table -> date('datalancamentofilme');
-            $table -> string('capafilme');
+        Schema::create('filmes', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('nomefilme');
+            $table->string('generofilme');
+            $table->string('distribuidorafilme');
+            $table->string('diretorfilme');
+            $table->string('classificacaofilme');
+            $table->string('duracaofilme');
+            $table->longText('sinopsefilme');
+            $table->string('categoriafilme');
+            $table->string('capafilme');
+            
         });
     }
+
 
     /**
      * Reverse the migrations.
